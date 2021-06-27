@@ -35,6 +35,26 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>com.fizzed</groupId>
+				<artifactId>fizzed-watcher-maven-plugin</artifactId>
+				<version>1.0.4</version>
+				<configuration>
+					<files>
+						<param>src/main/java</param>
+						<param>src/main/resources</param>
+					</files>
+					<goals>
+						<param>clean</param>
+						<param>compile</param>
+					</goals>
+					<profiles>
+						<param>optional-profile-to-activate-while-running-goals</param>
+					</profiles>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 
