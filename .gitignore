@@ -1,2 +1,5 @@
 # compile results directory
 target/
+
+# swap
+.swp
