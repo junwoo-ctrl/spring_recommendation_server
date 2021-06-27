@@ -2,4 +2,4 @@
 target/
 
 # swap
-.swp
+*.swp
