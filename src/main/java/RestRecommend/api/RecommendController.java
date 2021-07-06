@@ -12,13 +12,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import RestRecommend.data.RequestedWord;
 import RestRecommend.data.RecommendedWord;
 import RestRecommend.v1.Recommender;
+import RestRecommend.v1.ManualProvider;
 
 
 @RestController
-@RequestMapping(value="/recommend")
+@RequestMapping(value="/")
 public class RecommendController {
+
+	@RequestMapping(value="home/{version}", method=RequestMethod.GET)
+	public String getUsage(@PathVariable String version) {
+		ManualProvider our_manual_provider = new ManualProvider();
+		String our_manual = our_manual_provider.getOurManual(version);
+		return our_manual;
+	}
 	
-	@RequestMapping(value="/", method=RequestMethod.POST)
+	@RequestMapping(value="recommend", method=RequestMethod.POST)
 	@ResponseBody()
 	public RecommendedWord getRecommendedWord(@RequestBody RequestedWord requested_word) throws Exception {
 		Recommender recommender = new Recommender();
