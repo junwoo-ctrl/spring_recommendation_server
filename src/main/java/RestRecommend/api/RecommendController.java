@@ -25,13 +25,22 @@ public class RecommendController {
 		String our_manual = our_manual_provider.getOurManual(version);
 		return our_manual;
 	}
+
 	
-	@RequestMapping(value="recommend", method=RequestMethod.POST)
+	@RequestMapping(value="recommend/v1", method=RequestMethod.POST)
 	@ResponseBody()
 	public RecommendedWord getRecommendedWord(@RequestBody RequestedWord requested_word) throws Exception {
+		// just return data by simple logics.
 		Recommender recommender = new Recommender();
 		RecommendedWord recommended_word = recommender.searchRecommendWord(requested_word);
 		return recommended_word;
+	}
+
+	@RequestMapping(value="recommend/v2", method=RequestMethod.POST)
+	@ResponseBody()
+	public RecommendedWord getRecommendedWordByNgram(@RequestBody RequestedWord requested_word) throws Exception {
+		NgramRecommender ngram_recommender = new Recommender();
+		RecommendedWord ngram_recommended_word = ngram_recommender.searchNgramRecommendWord(requested_word);
 	}
 
 }
