@@ -36,11 +36,12 @@ public class RecommendController {
 		return recommended_word;
 	}
 
+/*
 	@RequestMapping(value="recommend/v2", method=RequestMethod.POST)
 	@ResponseBody()
 	public RecommendedWord getRecommendedWordByNgram(@RequestBody RequestedWord requested_word) throws Exception {
 		NgramRecommender ngram_recommender = new Recommender();
 		RecommendedWord ngram_recommended_word = ngram_recommender.searchNgramRecommendWord(requested_word);
 	}
-
+*/
 }
